@@ -26,6 +26,7 @@ body {
     var(--yellow);
   background-size: 44px 44px;
   overflow-x: hidden;
+  text-rendering: geometricPrecision;
 }
 
 a {
@@ -276,6 +277,7 @@ section {
   font-size: clamp(38px, 5.5vw, 82px);
   line-height: 0.98;
   font-weight: 1000;
+  letter-spacing: 0;
 }
 
 .section-title p {
@@ -351,40 +353,110 @@ section {
   font-weight: 700;
 }
 
-.price-board {
+.featured-products {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.meat-card {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.9fr) minmax(0, 1.1fr);
+  min-height: 250px;
   border: 3px solid var(--black);
   background: var(--yellow-soft);
   color: var(--black);
 }
 
-.price-item {
-  min-height: 190px;
-  padding: 24px 18px;
+.meat-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
   border-right: 3px solid var(--black);
-  text-align: center;
 }
 
-.price-item:nth-child(5n) {
+.meat-card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+}
+
+.meat-card span {
+  width: max-content;
+  padding: 5px 9px;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.meat-card h3 {
+  margin: 10px 0 8px;
+  font-size: clamp(30px, 3vw, 48px);
+  line-height: 1;
+  font-weight: 1000;
+}
+
+.meat-card p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 750;
+}
+
+.meat-card strong {
+  color: var(--red);
+  font-size: 30px;
+  line-height: 1;
+}
+
+.price-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 3px solid var(--yellow);
+}
+
+.price-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) 120px;
+  gap: 18px;
+  align-items: center;
+  min-height: 76px;
+  padding: 16px 20px;
+  border-right: 3px solid var(--yellow);
+  border-bottom: 3px solid var(--yellow);
+}
+
+.price-row:nth-child(2n) {
   border-right: 0;
 }
 
-.price-item strong {
-  display: block;
-  margin-inline: auto;
-  margin-bottom: 22px;
-  font-size: 26px;
-  writing-mode: vertical-rl;
+.price-row:nth-last-child(-n + 2) {
+  border-bottom: 0;
 }
 
-.price-item em {
-  display: block;
-  color: var(--red);
-  font-size: 42px;
+.price-row strong {
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.price-row span {
+  color: #f5e7ae;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.price-row em {
+  color: var(--yellow);
   font-style: normal;
-  font-weight: 1000;
-  line-height: 1;
+  font-size: 20px;
+  font-weight: 950;
+  text-align: right;
 }
 
 .price-note {
@@ -513,14 +585,24 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .price-item,
-  .price-item:nth-child(5n) {
-    border-right: 3px solid var(--black);
-    border-bottom: 3px solid var(--black);
+  .featured-products,
+  .price-list {
+    grid-template-columns: 1fr;
   }
 
-  .price-item:nth-child(2n) {
+  .meat-card {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+
+  .price-row,
+  .price-row:nth-child(2n),
+  .price-row:nth-last-child(-n + 2) {
     border-right: 0;
+    border-bottom: 3px solid var(--yellow);
+  }
+
+  .price-row:last-child {
+    border-bottom: 0;
   }
 }
 
@@ -543,14 +625,25 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .price-board {
+  .meat-card {
     grid-template-columns: 1fr;
   }
 
-  .price-item,
-  .price-item:nth-child(2n),
-  .price-item:nth-child(5n) {
+  .meat-card img {
+    height: 220px;
+    min-height: 220px;
     border-right: 0;
+    border-bottom: 3px solid var(--black);
+  }
+
+  .price-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+
+  .price-row em {
+    text-align: left;
   }
 
   nav {
