@@ -19,3 +19,4 @@ This roadmap tracks practical improvements for keeping the storefront easier to 
 ## Release Notes
 
 - `v0.1.0`: Open-source readiness baseline with MIT license, issue and PR templates, CI quality check, and repository documentation.
+- Unreleased: Repository profile polish with live homepage metadata, roadmap tracking, and screenshot previews.
