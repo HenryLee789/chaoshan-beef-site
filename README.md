@@ -13,6 +13,16 @@ The project keeps the public storefront page, product copy, visual assets, and b
 - Stylesheet: `styles.css`
 - Brand assets: `brand-assets/`
 
+## Screenshots
+
+### Desktop
+
+![Desktop storefront preview](docs/screenshots/home-desktop.png)
+
+### Mobile
+
+<img src="docs/screenshots/home-mobile.png" alt="Mobile storefront preview" width="280">
+
 ## Features
 
 - Responsive single-page storefront
@@ -29,6 +39,7 @@ The project keeps the public storefront page, product copy, visual assets, and b
 ├── README.md
 ├── ROADMAP.md
 ├── brand-assets/
+├── docs/
 ├── index.html
 ├── scripts/
 └── styles.css
