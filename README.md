@@ -83,6 +83,8 @@ Typical maintenance work includes:
 - Keeping the README and deployment notes current
 - Reviewing local asset references before publishing
 
+Use the [content update checklist](docs/content-update-checklist.md) before publishing changes to prices, hours, contact details, or visit information.
+
 See [ROADMAP.md](ROADMAP.md) for planned improvements.
 
 ## License
