@@ -10,9 +10,7 @@ This roadmap tracks practical improvements for keeping the storefront easier to 
 
 ## Planned Improvements
 
-- Add a content update checklist for prices, hours, and contact details.
 - Move repeated storefront content into structured data so future edits are easier to review.
-- Add screenshot-based preview documentation for desktop and mobile layouts.
 - Expand accessibility checks for heading order, contrast-sensitive sections, and keyboard navigation.
 - Document the image replacement workflow for storefront, product, and poster assets.
 
@@ -20,3 +18,4 @@ This roadmap tracks practical improvements for keeping the storefront easier to 
 
 - `v0.1.0`: Open-source readiness baseline with MIT license, issue and PR templates, CI quality check, and repository documentation.
 - Unreleased: Repository profile polish with live homepage metadata, roadmap tracking, and screenshot previews.
+- Unreleased: Content update checklist for prices, hours, contact details, and review steps.
