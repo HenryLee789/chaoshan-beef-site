@@ -1,12 +1,14 @@
 # Chaoshan Beef Site
 
+[![Site Quality](https://github.com/HenryLee789/chaoshan-beef-site/actions/workflows/quality.yml/badge.svg)](https://github.com/HenryLee789/chaoshan-beef-site/actions/workflows/quality.yml)
+
 A static GitHub Pages website for a Chaoshan-style fresh beef shop in Zhengzhou, China.
 
 The project keeps the public storefront page, product copy, visual assets, and basic quality checks in one small repository so updates can be reviewed and published transparently.
 
 ## Preview
 
-- Production domain: https://cshnyangrou.top
+- Production domain: https://test9020.top/
 - Main page: `index.html`
 - Stylesheet: `styles.css`
 - Brand assets: `brand-assets/`
@@ -25,6 +27,7 @@ The project keeps the public storefront page, product copy, visual assets, and b
 .
 ├── CNAME
 ├── README.md
+├── ROADMAP.md
 ├── brand-assets/
 ├── index.html
 ├── scripts/
@@ -56,7 +59,7 @@ The script verifies that required files exist, referenced local assets are prese
 The site is designed for GitHub Pages. The `CNAME` file points the Pages deployment to:
 
 ```text
-cshnyangrou.top
+test9020.top
 ```
 
 ## Maintenance
@@ -68,6 +71,8 @@ Typical maintenance work includes:
 - Checking mobile layout and accessibility after content changes
 - Keeping the README and deployment notes current
 - Reviewing local asset references before publishing
+
+See [ROADMAP.md](ROADMAP.md) for planned improvements.
 
 ## License
 
