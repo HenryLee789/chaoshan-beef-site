@@ -20,6 +20,7 @@ class SiteParser(HTMLParser):
         self.meta_description = False
         self.class_names: set[str] = set()
         self.image_sources: list[str] = []
+        self.stylesheet_refs: list[str] = []
         self.local_refs: list[tuple[str, str]] = []
         self.images_without_alt: list[str] = []
 
@@ -46,6 +47,7 @@ class SiteParser(HTMLParser):
         if tag == "link" and values.get("rel") == "stylesheet":
             href = values.get("href", "")
             if href:
+                self.stylesheet_refs.append(href)
                 self.local_refs.append(("stylesheet", href))
 
     def handle_endtag(self, tag: str) -> None:
@@ -80,7 +82,8 @@ def main() -> int:
     for kind, ref in parser.local_refs:
         if not is_local_reference(ref):
             continue
-        target = (ROOT / ref).resolve()
+        parsed = urlparse(ref)
+        target = (ROOT / parsed.path).resolve()
         if ROOT not in target.parents and target != ROOT:
             broken_refs.append(f"{kind}: {ref} escapes repository root")
         elif not target.exists():
@@ -100,6 +103,8 @@ def main() -> int:
             failures.append(f"index.html is missing responsive UI class: {class_name}")
     if parser.image_sources.count(EXPECTED_IMAGE_SRC) < 2:
         failures.append(f"index.html must use {EXPECTED_IMAGE_SRC} for separate profile and QR crops")
+    if not any(ref.startswith("styles.css?v=") for ref in parser.stylesheet_refs):
+        failures.append("index.html must version styles.css to avoid stale mobile CSS caches")
     if parser.images_without_alt:
         failures.append("Images missing alt text: " + ", ".join(parser.images_without_alt))
     if broken_refs:
