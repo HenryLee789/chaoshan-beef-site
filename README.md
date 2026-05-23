@@ -1,51 +1,15 @@
-# Chaoshan Beef Site
+# Fake Image Site
 
-[![Site Quality](https://github.com/HenryLee789/chaoshan-beef-site/actions/workflows/quality.yml/badge.svg)](https://github.com/HenryLee789/chaoshan-beef-site/actions/workflows/quality.yml)
-
-A static GitHub Pages website for a Chaoshan-style fresh beef shop in Zhengzhou, China.
-
-The project keeps the public storefront page, product copy, visual assets, and basic quality checks in one small repository so updates can be reviewed and published transparently.
+A minimal GitHub Pages site for showing one image at `https://test9020.top/`.
 
 ## Preview
 
 - Production domain: https://test9020.top/
 - Main page: `index.html`
 - Stylesheet: `styles.css`
-- Brand assets: `brand-assets/`
+- Image: `assets/fake-wechat.png`
 
-## Screenshots
-
-### Desktop
-
-![Desktop storefront preview](docs/screenshots/home-desktop.png)
-
-### Mobile
-
-<img src="docs/screenshots/home-mobile.png" alt="Mobile storefront preview" width="280">
-
-## Features
-
-- Responsive single-page storefront
-- Chinese copy for brand positioning, product pricing, and visit information
-- Local brand assets for storefront, product, and poster imagery
-- Accessible navigation landmarks, image alt text, and semantic sections
-- Zero-build deployment through GitHub Pages
-
-## Repository Structure
-
-```text
-.
-├── CNAME
-├── README.md
-├── ROADMAP.md
-├── brand-assets/
-├── docs/
-├── index.html
-├── scripts/
-└── styles.css
-```
-
-## Local Development
+## Local Preview
 
 Open `index.html` directly in a browser, or serve the folder with any static file server:
 
@@ -63,7 +27,7 @@ Run the repository check before publishing changes:
 python3 scripts/check_site.py
 ```
 
-The script verifies that required files exist, referenced local assets are present, images have alt text, and the page includes basic metadata.
+The script verifies that required files exist, referenced local assets are present, images have alt text, and the homepage shows `assets/fake-wechat.png`.
 
 ## Deployment
 
@@ -72,20 +36,6 @@ The site is designed for GitHub Pages. The `CNAME` file points the Pages deploym
 ```text
 test9020.top
 ```
-
-## Maintenance
-
-Typical maintenance work includes:
-
-- Updating product descriptions, prices, and store information
-- Replacing or adding brand images
-- Checking mobile layout and accessibility after content changes
-- Keeping the README and deployment notes current
-- Reviewing local asset references before publishing
-
-Use the [content update checklist](docs/content-update-checklist.md) before publishing changes to prices, hours, contact details, or visit information.
-
-See [ROADMAP.md](ROADMAP.md) for planned improvements.
 
 ## License
 

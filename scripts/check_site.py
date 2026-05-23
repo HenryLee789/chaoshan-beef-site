@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_IMAGE_SRC = "assets/fake-wechat.png"
 
 
 class SiteParser(HTMLParser):
@@ -17,6 +18,7 @@ class SiteParser(HTMLParser):
         self.title = ""
         self.in_title = False
         self.meta_description = False
+        self.image_sources: list[str] = []
         self.local_refs: list[tuple[str, str]] = []
         self.images_without_alt: list[str] = []
 
@@ -32,6 +34,7 @@ class SiteParser(HTMLParser):
         if tag == "img":
             src = values.get("src", "")
             if src:
+                self.image_sources.append(src)
                 self.local_refs.append(("img", src))
             if not values.get("alt", "").strip():
                 self.images_without_alt.append(src or "<missing src>")
@@ -86,6 +89,8 @@ def main() -> int:
         failures.append("index.html is missing a title")
     if not parser.meta_description:
         failures.append("index.html is missing a meta description")
+    if EXPECTED_IMAGE_SRC not in parser.image_sources:
+        failures.append(f"index.html must show {EXPECTED_IMAGE_SRC}")
     if parser.images_without_alt:
         failures.append("Images missing alt text: " + ", ".join(parser.images_without_alt))
     if broken_refs:

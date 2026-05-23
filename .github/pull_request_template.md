@@ -5,9 +5,9 @@
 ## Checks
 
 - [ ] Ran `python3 scripts/check_site.py`
-- [ ] Checked the page in a desktop viewport
-- [ ] Checked the page in a mobile viewport
-- [ ] Confirmed store details, prices, and phone links are correct
+- [ ] Checked that the image displays in a desktop viewport
+- [ ] Checked that the image scales in a mobile viewport
+- [ ] Confirmed the deployed page still points to `test9020.top`
 
 ## Notes
 
