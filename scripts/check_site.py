@@ -18,6 +18,7 @@ class SiteParser(HTMLParser):
         self.title = ""
         self.in_title = False
         self.meta_description = False
+        self.class_names: set[str] = set()
         self.image_sources: list[str] = []
         self.local_refs: list[tuple[str, str]] = []
         self.images_without_alt: list[str] = []
@@ -30,6 +31,9 @@ class SiteParser(HTMLParser):
 
         if tag == "meta" and values.get("name") == "description" and values.get("content"):
             self.meta_description = True
+
+        for class_name in values.get("class", "").split():
+            self.class_names.add(class_name)
 
         if tag == "img":
             src = values.get("src", "")
@@ -91,6 +95,11 @@ def main() -> int:
         failures.append("index.html is missing a meta description")
     if EXPECTED_IMAGE_SRC not in parser.image_sources:
         failures.append(f"index.html must show {EXPECTED_IMAGE_SRC}")
+    for class_name in ("profile-card", "avatar-crop", "qr-crop"):
+        if class_name not in parser.class_names:
+            failures.append(f"index.html is missing responsive UI class: {class_name}")
+    if parser.image_sources.count(EXPECTED_IMAGE_SRC) < 2:
+        failures.append(f"index.html must use {EXPECTED_IMAGE_SRC} for separate profile and QR crops")
     if parser.images_without_alt:
         failures.append("Images missing alt text: " + ", ".join(parser.images_without_alt))
     if broken_refs:

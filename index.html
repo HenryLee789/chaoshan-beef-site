@@ -9,13 +9,22 @@
   </head>
   <body>
     <main class="image-page" aria-label="Fake 微信二维码名片">
-      <img
-        class="wechat-card"
-        src="assets/fake-wechat.png"
-        width="912"
-        height="1354"
-        alt="Fake 的微信二维码名片"
-      />
+      <section class="profile-card">
+        <header class="profile-header">
+          <span class="avatar-crop" aria-label="Fake 头像">
+            <img src="assets/fake-wechat.png" width="912" height="1354" alt="Fake 头像" />
+          </span>
+          <h1>Fake</h1>
+        </header>
+
+        <div class="qr-frame" aria-label="Fake 微信二维码">
+          <span class="qr-crop">
+            <img src="assets/fake-wechat.png" width="912" height="1354" alt="Fake 微信二维码" />
+          </span>
+        </div>
+
+        <p>扫一扫，添加我为朋友。</p>
+      </section>
     </main>
   </body>
 </html>

@@ -1,13 +1,13 @@
 # Fake Image Site
 
-A minimal GitHub Pages site for showing one image at `https://test9020.top/`.
+A minimal GitHub Pages site for showing a responsive Fake WeChat QR profile at `https://test9020.top/`.
 
 ## Preview
 
 - Production domain: https://test9020.top/
 - Main page: `index.html`
 - Stylesheet: `styles.css`
-- Image: `assets/fake-wechat.png`
+- Source image: `assets/fake-wechat.png`
 
 ## Local Preview
 
@@ -27,7 +27,7 @@ Run the repository check before publishing changes:
 python3 scripts/check_site.py
 ```
 
-The script verifies that required files exist, referenced local assets are present, images have alt text, and the homepage shows `assets/fake-wechat.png`.
+The script verifies that required files exist, referenced local assets are present, images have alt text, and the homepage uses `assets/fake-wechat.png` for the responsive profile and QR crops.
 
 ## Deployment
 
